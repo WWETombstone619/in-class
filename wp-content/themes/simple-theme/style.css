@@ -1,0 +1,13 @@
+/*
+Theme Name: Simplest Theme Ever
+Author: Brian Mohler
+Version: 0.1
+Description: The most basic theme possible
+License: GPLv3
+
+Any other comments can go here
+*/
+body{
+	background-color: #00A181;
+	font-family: sans-serif;
+}
