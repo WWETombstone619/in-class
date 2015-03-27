@@ -32,11 +32,27 @@ function awesome_ex_length(){
 }
 add_filter('excerpt_length', 'awesome_ex_length');
 
-//replaces [...] with read more
 function awesome_readmore(){
-
+	return ' <a href="' . get_permalink() . '" class="readmore">Read More</a>';
 }
+add_filter( 'excerpt_more', 'awesome_readmore' );
 
+
+
+/**
+ * Menu Areas
+ * Registers two menu areas
+ * display them in your theme with wp_nav_menu
+ */
+		//'init' has it run when wordpress is initializing the page
+add_action('init', 'awesome_menus');
+function awesome_menus(){
+	register_nav_menus( array(
+			//'code_name' => 'Human Readable'
+			'main_nav'  => 'Main Navigation Area',
+			'utilities' => 'Utilities and Social Icons',
+		) );
+}
 
 
 
