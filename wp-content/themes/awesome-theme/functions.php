@@ -1,4 +1,17 @@
 <?php
+//required for auto embeds
+if ( ! isset( $content_width ) ) $content_width = 694;
+
+//required for good Comment UX
+add_action( 'wp_enqueue_scripts', 'awesome_scripts' );
+function awesome_scripts(){
+	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+}
+
+//required since 4.1
+add_theme_support( 'title_tag' );
+
+
 //use this file for custom functons and activating "sleeping" wordpress features
 
 //allow you to attach a "featured image" to each post or page
@@ -19,6 +32,9 @@ add_theme_support( 'html5', array( 'search-form', 'comment-form', 'gallery', 'ca
 add_theme_support( 'automatic-feed-links' );
 
 add_image_size( 'big-banner', 1300, 300, true );
+
+//allows you to style te editor window with editor-style.css
+add_editor_style();
 
 /**
  * Improve Excerpts - change the length and annoying [...] symbol
@@ -53,6 +69,50 @@ function awesome_menus(){
 			'utilities' => 'Utilities and Social Icons',
 		) );
 }
+
+/**
+ * Add Widget Areas (Dynamic Sidebars)
+ */
+add_action('widgets_init', 'awesome_widget_areas');
+function awesome_widget_areas(){
+	register_sidebar( array(
+		'name'			=> 'Blog Sidebar',
+		'id'  			=> 'blog_sidebar',
+		'description'   => 'Appears alongside all blog and archive pages',
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'			=> 'Home Area',
+		'id'  			=> 'home_area',
+		'description'   => 'Appears in the middle of the home page content',
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'			=> 'Page Sidebar',
+		'id'  			=> 'page_sidebar',
+		'description'   => 'Appears alongside all pages',
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'			=> 'Footer Area',
+		'id'  			=> 'footer_area',
+		'description'   => 'Appears at the bottom of everything',
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+
 
 
 
