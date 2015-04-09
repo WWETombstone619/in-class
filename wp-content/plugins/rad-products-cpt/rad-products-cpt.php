@@ -6,9 +6,11 @@ Author: Brian Mohler
 Version: 0.1
 License: GPLv3
 */
+
 /**
  * Register 'Product' post type
  */
+
 add_action( 'init', 'rad_setup_products' );
 function rad_setup_products(){
 	// no capital letters, spaces or special characters in the CPT name
