@@ -21,8 +21,15 @@ function rad_bar_html(){
 	<!-- Rad Announcement Bar by Brian Mohler -->
 	<div id="rad-announcement-bar">
 		<span>
-			This is a really important announcement!
-			<a href="#">Click Here!</a>
+			
+<?php //get the contact info from the options table
+	 $values = get_option('rad_options');
+	 if($values): ?>
+		<div>
+		<?php echo $values['message'] ?>
+		<a href="<?php echo $values['link'] ?>">Click Here!</a>
+		</div>
+	<?php endif; ?>
 		</span>
 	</div>
 	<?php //re-opens php for further php code
@@ -41,6 +48,7 @@ function rad_bar_styles(){
 		wp_enqueue_style( 'rad-bar-style', $url );
 	endif;
 }
+
 
 
 //don't close php

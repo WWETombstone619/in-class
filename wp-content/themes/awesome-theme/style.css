@@ -1467,6 +1467,56 @@ body.single-product .post-meta span{
 /*
 ==Products Widget  
 */
+
+/*
+stylesheet for recent posts plugin with thumbnails
+*/
+.latest-products img {      
+        margin:0 0 10px 0;
+}
+
+.latest-products .readmore {
+        display:none;
+}
+.latest-products h3{
+        font-size:1.3em;
+}
+.latest-products a, .latest-products a:hover{
+        color: white;
+}
+.latest-products ul{
+        list-style-type:none;
+}
+.latest-products li{
+       float:left;
+       width:150px;
+       list-style-type:none;
+       margin:0 20px 0 0;
+       padding:0 ;
+       background-image:none !important;
+       position:relative;
+}
+.latest-products .product-info{
+        position:absolute;
+        left:0%;
+       bottom:0px;
+        padding:10px 10px 0;
+        width:100%;
+       height:70%;
+        background-color:rgba(0,0,0,.8);
+        opacity:0;
+        overflow:hidden;
+        -webkit-transition: all 200ms ease-in;
+        -moz-transition: all 200ms ease-in;
+        -ms-transition: all 200ms ease-in;
+        -o-transition: all 200ms ease-in;
+        transition: all 200ms ease-in;
+}
+.latest-products a:hover .product-info{
+        opacity: 1;
+        bottom:14px;
+}
+
 #featured-content{
 	margin:2em 0;
 }
@@ -1565,6 +1615,7 @@ body.single-product .post-meta span{
 	.home #sidebar{
 		width: 100%;
 		float: none;
+		clear: both;
 	}
 	footer#colophon .widget {
 		width:25%;
